@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Student</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+<script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body>
+  		<div>
+	<h2 >Add new Student</h2>
+	<tr>
+		<div align = "left" >
+		<h3><a  th:href="@{'/student/addstudent'}">Add Student</a>   
+		</div>
+	</tr>
+	 
+	<div class="col-sm-8" align = "center">
+		<div class="panel-body" align = "center" >
+	                             
+	   <table class="table">
+			<thead class="thead-dark">
+		        <tr>
+		            <th>Student ID</th>
+		            <th>Student Name</th>
+		            <th>Course</th>
+		         	
+		             <th>edit</th>
+		             <th>delete</th>
+		  		</tr>
+	 		</thead>
+	 		
+		 <tbody>
+		  	<tr  th:each="student : ${liststudent}">
+				<td th:text="${student.id}">Student ID</td>
+				<td th:text="${student.stname}">Student Name</td>
+				<td th:text="${student.cname}">Course name</td>
+				
+				<td>
+					<a th:href="@{'student/edit/' + ${student.id}}">Edit</a>
+				</td>     
+				<td>
+					<a th:href="@{'student/delete/' + ${student.id}}">Delete</a>
+				</td>      
+			</tr>
+		 </tbody>
+ 	</table>                
+  </div>
+ </div>
+ </div>	 
+</body>
+</html>
